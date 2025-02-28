@@ -1,0 +1,9 @@
+Difference Between COPY and ADD:
+COPY: Simply copies files from the host to the container.
+ADD: Similar to COPY, but also supports extracting compressed files (e.g., tar archives) automatically and can fetch remote URLs.
+Key Docker Concepts:
+ADD: Used while creating a container, supports extracting compressed files and fetching remote URLs.
+RUN: Executes commands during image creation and creates a new image layer.
+ENTRYPOINT: Does not override the previous command, keeps the original configuration, and is often used for executable scripts.
+CMD: Overrides the current command with a new value (e.g., CMD sleep 10), but can be overridden by command-line arguments when running a container.
+WORKDIR: Sets the default working directory inside the container and is preferred over using RUN cd /path.
