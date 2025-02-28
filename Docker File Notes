@@ -1,0 +1,45 @@
+EXAMPLE TO BUILD DOCKER IMAGES
+# 1st Dockerfile Example
+FROM ubuntu
+ENV user=suan
+RUN echo "Hello $user"
+
+# 2nd Dockerfile Example
+FROM ubuntu
+ENV user=suan
+RUN apt-get update && \
+    apt-get install -y apache2 && \
+    apt-get clean
+
+# 3rd Dockerfile Example
+FROM ubuntu
+ENV user=suan
+RUN apt-get update && \
+    apt-get install -y apache2 && \
+    apt-get clean
+ADD index.html /var/www/html/
+EXPOSE 80
+
+
+DOCKER IMAGE BUILD AND RUN STEPS
+
+# Building an Image
+docker build -t "image_name" .
+
+# Listing Images
+docker images
+
+# Running a Container
+docker run -it -d --name "container_name" -p "port_number" "image_id" /bin/bash
+
+# Attaching to a Running Container
+docker attach "container_name"
+
+# Starting Apache2 Inside the Container
+/usr/sbin/apache2ctl start
+
+# Checking if Apache2 is Running
+ps aux | grep "apache2"
+
+# Detach from Container Without Stopping
+# Press CTRL + P, then CTRL + Q to exit while keeping the container running.
